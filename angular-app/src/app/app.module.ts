@@ -23,7 +23,8 @@ import { ListarProductoComponent } from './components/listar-producto/listar-pro
     AppRoutingModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -4,8 +4,11 @@
             <div class="card">
                 <div class="card-body text-center">
                     <span class="titulo">LISTADO DE PRODUCTOS</span>
-                    <button class="btn btn-success float-end" routerLink="/crear-producto">NUEVO</button>
-                    <table class="table table-striped mt-4">
+                    <button class="btn btn-success float-end" routerLink="/crear-producto">
+                      <i class="fa-solid fa-plus me-1"></i>
+                      <span>NUEVO</span>
+                    </button>
+                    <table *ngIf="listProductos.length > 0" class="table table-striped mt-4">
                         <thead>
                           <tr>
                             <th scope="col">Código</th>
@@ -16,28 +19,19 @@
                           </tr>
                         </thead>
                         <tbody class="table-group-divider">
-                          <tr>
-                            <td>1</td>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
+                          <tr *ngFor="let producto of listProductos">
+                            <td>{{ producto.Id }}</td>
+                            <td>{{ producto.Name }}</td>
+                            <td>{{ producto.Description }}</td>
+                            <td>{{ producto.Quantity }}</td>
                             <td>
-                                <i class="fa-solid fa-pen-to-square text-primary"></i>
-                                <i class="fa-solid fa-trash text-danger"></i>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>2</td>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                            <td>
-                                <i class="fa-solid fa-pen-to-square text-primary"></i>
-                                <i class="fa-solid fa-trash text-danger"></i>
+                                <i [routerLink]="['/editar-producto', producto.Id]" class="fa-solid fa-pen-to-square text-primary icon-btn"></i>
+                                <i (click)="eliminarProducto(producto.Id)" class="fa-solid fa-trash text-danger icon-btn"></i>
                             </td>
                           </tr>
                         </tbody>
                       </table>
+                      <h5 style="text-align: start; margin-top: 10px" *ngIf="listProductos.length == 0">No hay productos para mostrar</h5>
                 </div>
             </div>
          </div>

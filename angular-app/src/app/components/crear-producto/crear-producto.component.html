@@ -3,32 +3,38 @@
         <div class="col-lg-6 offset-lg-3">
             <div class="card">
                 <div class="card-body text-center">
-                    <span class="titulo">CREAR PRODUCTO</span>
+                    <span class="titulo">{{ titulo | uppercase }}</span>
                     <form class="mt-3" [formGroup]="productoForm" (ngSubmit)="agregarProducto()">
                         <div class="mb-3">
-                            <input type="text" formControlName="name" class="form-control form-control-lg" placeholder="Nombre">
+                            <input type="text" formControlName="name" class="form-control" placeholder="Nombre">
                             <div class="text-danger"
                                 *ngIf="productoForm.get('name')?.hasError('required') && productoForm.get('name')?.touched">
                                 <span>El campo <strong>nombre</strong> es obligatorio.</span>
                             </div>
                         </div>
                         <div class="mb-3">
-                            <input type="text" formControlName="description" class="form-control form-control-lg" placeholder="Descripción">
+                            <input type="text" formControlName="description" class="form-control" placeholder="Descripción">
                             <div class="text-danger"
                                 *ngIf="productoForm.get('description')?.hasError('required') && productoForm.get('description')?.touched">
                                 <span>El campo <strong>descrpción</strong> es obligatorio.</span>
                             </div>
                         </div>
                         <div class="mb-3">
-                            <input type="number" formControlName="quantity" class="form-control form-control-lg" placeholder="Cantidad">
+                            <input type="number" formControlName="quantity" class="form-control " placeholder="Cantidad">
                             <div class="text-danger"
                                 *ngIf="productoForm.get('quantity')?.hasError('required') && productoForm.get('quantity')?.touched">
                                 <span>El campo <strong>cantidad</strong> es obligatorio.</span>
                             </div>
                         </div>
                         <div class="mb-3">
-                            <button routerLink="/" class="btn btn-secondary btn-lg float-start">VOLVER</button>
-                            <button type="submit" [disabled]="productoForm.invalid" class="btn btn-success btn-lg float-end">ACEPTAR</button>
+                            <button routerLink="/" class="btn btn-secondary float-start">
+                                <i class="fa-solid fa-right-from-bracket me-1"></i>
+                                <span>VOLVER</span>
+                            </button>
+                            <button type="submit" [disabled]="productoForm.invalid" class="btn btn-success float-end">
+                                <i class="fa-solid fa-floppy-disk me-1"></i>
+                                <span>ACEPTAR</span>
+                            </button>
                         </div>
                     </form>
                 </div>
