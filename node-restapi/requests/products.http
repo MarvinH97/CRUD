@@ -1,0 +1,32 @@
+@api = http://localhost:3000/products
+
+GET {{api}}
+
+###
+POST {{api}}
+Content-Type: application/json
+
+{
+    "name": "Monitor Apple",
+    "description": "1080 x 720",
+    "quantity": 6
+}
+
+###
+GET {{api}}/2
+
+###
+DELETE {{api}}/6
+
+###
+GET {{api}}/count
+
+###
+PUT {{api}}/1
+Content-Type: application/json
+
+{
+    "name": "Laptop DELL",
+    "description": "Portatil de buena calidad y capacidad de procesamiento.",
+    "quantity": 8
+}
